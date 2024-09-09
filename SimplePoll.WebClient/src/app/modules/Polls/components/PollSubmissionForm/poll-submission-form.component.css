@@ -1,0 +1,38 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.form-container > * {
+  margin: 25px 0;
+}
+
+.form-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-controls > * {
+  margin: 10px 0;
+}
+
+.section-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.section-buttons > * {
+  margin: 0 10px;
+}
+
+.error {
+  margin: 0 !important;
+  color: #ff0000;
+}
+
+.error mat-icon {
+  position: relative;
+  top: 5px;
+}

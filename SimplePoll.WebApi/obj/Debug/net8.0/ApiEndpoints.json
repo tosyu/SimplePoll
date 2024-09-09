@@ -1,0 +1,49 @@
+[
+  {
+    "ContainingType": "SimplePoll.WebApi.Controllers.PollController",
+    "Method": "GetPoll",
+    "RelativePath": "Poll/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SimplePoll.WebApi.Controllers.PollController",
+    "Method": "Submit",
+    "RelativePath": "Poll/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "submission",
+        "Type": "SimplePoll.Common.Data.PollSubmissionRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SimplePoll.WebApi.Controllers.PollController",
+    "Method": "GetAll",
+    "RelativePath": "Poll/All",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

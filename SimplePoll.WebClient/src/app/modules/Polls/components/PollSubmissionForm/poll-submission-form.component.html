@@ -1,0 +1,65 @@
+<form [formGroup]="pollForm">
+  <div class="form-container">
+    <div class="form-controls">
+      <ng-container *ngFor="let control of controls; index as i">
+        <ng-container *ngIf="control.type == 'textarea'">
+          <mat-form-field>
+            <mat-label>{{control.description}}</mat-label>
+            <textarea matInput formControlName="{{control.name}}"></textarea>
+          </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="control.type == 'text'">
+          <mat-form-field>
+            <mat-label>{{control.description}}</mat-label>
+            <input matInput formControlName="{{control.name}}" type="{{control.subtype === 'text' ? 'text' : 'number'}}">
+          </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="control.type == 'logical'">
+          <mat-form-field>
+            <mat-label>{{control.description}}</mat-label>
+            <mat-select formControlName="{{control.name}}">
+              <mat-option *ngFor="let opt of control.values; index as i" value="{{opt.id}}">{{opt.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="control.type == 'singleanswer'">
+          <mat-form-field>
+            <mat-label>{{control.description}}</mat-label>
+            <mat-select formControlName="{{control.name}}">
+              <mat-option *ngFor="let opt of control.values; index as i" value="{{opt.id}}">{{opt.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </ng-container>
+        <ng-container *ngIf="control.type == 'multianswer'">
+          <mat-label>{{control.description}}</mat-label>
+          <mat-selection-list formControlName="{{control.name}}">
+            <mat-list-option *ngFor="let check of control.values; index as i" [value]="check.id">{{check.name}}</mat-list-option>
+          </mat-selection-list>
+        </ng-container>
+        <div class="error" *ngIf="pollForm.controls[control.name].invalid && (pollForm.controls[control.name].dirty || pollForm.controls[control.name].touched)">
+          <mat-icon>arrow_upward</mat-icon>
+          <ng-container *ngIf="pollForm.controls[control.name].errors?.['required']">
+            Pole jest wymagane
+          </ng-container>
+          <ng-container *ngIf="pollForm.controls[control.name].errors?.['min']">
+            Wartość jest zbyt mała
+          </ng-container>
+          <ng-container *ngIf="pollForm.controls[control.name].errors?.['max']">
+            Wartość jest za duża
+          </ng-container>
+          <ng-container *ngIf="pollForm.controls[control.name].errors?.['minlength']">
+            Treść jest zbyt krótka
+          </ng-container>
+          <ng-container *ngIf="pollForm.controls[control.name].errors?.['maxlength']">
+            Treść jest za długa
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    <div class="section-buttons">
+      <button mat-flat-button color="primary" (click)="submitForm()">Wyślij</button>
+      <button mat-stroked-button color="primary" (click)="resetForm()">Wyczyść</button>
+      <button mat-stroked-button color="primary" routerLink="../..">Anuluj</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,6 @@
+<h3>Lista ankiet</h3>
+<mat-list role="list">
+  <mat-list-item role="list-item" *ngFor="let poll of polls; index as i">
+    <a mat-flat-button routerLink="/poll/{{poll.id}}" rouerLinkActive="active">{{poll.name}} <mat-icon>arrow_forward</mat-icon></a>
+  </mat-list-item>
+</mat-list>
